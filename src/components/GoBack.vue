@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 .go-back {
   display: flex;
-  padding-left: 30px;
+  padding-left: 1.5rem;
   button {
     /*     --color: #7d7d7d;
     --l: 50%;

@@ -37,7 +37,11 @@
           </router-link>
         </div>
       </div>
-      <router-view :key="$route.path" />
+      <router-view :key="$route.path" v-slot="{ Component }" appear>
+        <transition :name="transitionName">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </section>
   </div>
 </template>
@@ -57,7 +61,9 @@ export default {
   },
   components: { GoBack },
   data() {
-    return {}
+    return {
+      transitionName: "slideUp",
+    }
   },
   computed: {
     destination() {
@@ -65,6 +71,12 @@ export default {
         (destination) => destination.slug == this.slug
       )
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    const toDepth = to.path.split("/").length
+    const fromDepth = from.path.split("/").length
+    this.transitionName = toDepth < fromDepth ? "slideUp" : "slideUp"
+    next()
   },
 }
 </script>

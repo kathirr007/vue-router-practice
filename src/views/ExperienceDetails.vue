@@ -12,6 +12,8 @@
       </p>
     </div>
   </section>
+  <!-- <transition name="slideUp">
+  </transition> -->
 </template>
 
 <script>

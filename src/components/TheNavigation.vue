@@ -37,9 +37,15 @@ export default {
 
 <style lang="scss" scoped>
 #nav {
-  padding: 30px;
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+  border-bottom: 2px solid var(--color-primary-darkest);
+  margin-bottom: 1rem;
 
   a {
     font-weight: bold;
